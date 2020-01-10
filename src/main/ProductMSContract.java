@@ -10,5 +10,6 @@ public interface ProductMSContract {
 
     interface Controller {
         Product getProduct(long id) throws Exception;
+        boolean addProduct(Product product);
     }
 }

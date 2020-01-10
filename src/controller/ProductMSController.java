@@ -13,4 +13,9 @@ public class ProductMSController implements ProductMSContract.Controller {
     public Product getProduct(long id) throws Exception {
         return repository.getProduct(id);
     }
+
+    @Override
+    public boolean addProduct(Product product) {
+        return repository.saveProduct(product);
+    }
 }
