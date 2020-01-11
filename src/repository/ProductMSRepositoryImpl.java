@@ -7,37 +7,27 @@ import java.util.*;
 public class ProductMSRepositoryImpl implements ProductMSRepository {
 
     private List<Product> data = new ArrayList<>();
-//    private static int addedId = 0;
 
     @Override
-    public boolean saveProduct(Product product) {
-        if (product.getName() == null || product.getPrice() == null || product.getCategory() == null) {
-            return false;
-        } else {
-            data.add(product);
-            return true;
-        }
+    public void addProduct(Product product) {
+        data.add(product);
     }
 
     @Override
-    public Product getProduct(long id) throws Exception {
-        if (data != null) {
-            return data.stream()
-                    .filter(product -> product.getId() == id)
-                    .findAny()
-                    .orElse(null);
-        } else {
-            throw new Exception("The product db is empty");
-        }
+    public Product getProduct(long id) {
+        return data.stream()
+                .filter(product -> product.getId() == id)
+                .findAny()
+                .orElse(null);
     }
 
     @Override
     public List<Product> getAllProducts() {
-        return null;
+        return data;
     }
 
     @Override
-    public void deleteProduct() {
-
+    public boolean deleteProduct(long id) {
+        return data.removeIf(product -> product.getId() == id);
     }
 }

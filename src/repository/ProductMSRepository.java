@@ -6,9 +6,8 @@ import java.util.List;
 
 public interface ProductMSRepository {
 
-    boolean saveProduct(Product product);
-    Product getProduct(long id) throws Exception;
+    void addProduct(Product product);
+    Product getProduct(long id);
     List<Product> getAllProducts();
-    void deleteProduct();
-
+    boolean deleteProduct(long id);
 }

@@ -4,5 +4,6 @@ public enum Category {
     FRUIT,
     VEGETABLES,
     JUICES,
-    ALCOHOL
+    ALCOHOL,
+    UNKNOWN
 }
